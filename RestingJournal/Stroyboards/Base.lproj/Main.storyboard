@@ -139,7 +139,11 @@
                         <viewLayoutGuide key="safeArea" id="pDM-Xl-3CO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="l2R-U4-rJX">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="rQu-Va-zQF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="rQu-Va-zQF">
+                            <connections>
+                                <action selector="saveBarButtonTapped:" destination="Kg3-cL-vO2" id="1Vf-sC-ouh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bodyTextView" destination="wlS-5D-MUP" id="I4h-0j-jkx"/>
