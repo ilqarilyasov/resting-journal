@@ -8,13 +8,15 @@
 
 import Foundation
 
-struct Entry: Equatable, Codable {
+struct Entry: Equatable, Codable
+{
     var title: String
     var bodyText: String
     let timestamp: Date
     let identifier: String
     
-    init(title: String, bodyText: String) {
+    init(title: String, bodyText: String)
+    {
         self.title = title
         self.bodyText = bodyText
         self.timestamp = Date()
