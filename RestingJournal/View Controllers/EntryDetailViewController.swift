@@ -12,7 +12,7 @@ class EntryDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    var entry: Entry?
+    var entry: Entry? { didSet { updateViews() }}
     var entryController: EntryController?
     
     // MARK: - Outlets
@@ -22,13 +22,53 @@ class EntryDetailViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func saveBarButtonTapped(_ sender: Any) {
+    @IBAction func saveBarButtonTapped(_ sender: Any)
+    {
+        guard let entryController = entryController,
+            let text = titleTextField.text,
+            let bodyText = bodyTextView.text else { return }
+        
+        if let entry = entry
+        {
+            entryController.updateEntry(entry: entry, title: text, bodyText: bodyText)
+            { (error) in
+                NSLog("EntryDetailViewController. 1 - Error updating the entry: \(String(describing: error))")
+            }
+        }
+        else
+        {
+            entryController.createEntry(withTitle: text, bodyText: bodyText)
+            { (error) in
+                NSLog("EntryDetailViewController. 2 - Error creating an entry: \(String(describing: error))")
+            }
+        }
+    }
+    
+    // MARK: - Lifecycle functions
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        updateViews()
         
     }
     
+    // MARK: - Update views
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func updateViews()
+    {
+        guard isViewLoaded else { return }
+        
+        if let entry = entry
+        {
+            title = entry.title
+            titleTextField.text = entry.title
+            bodyTextView.text = entry.bodyText
+        }
+        else
+        {
+            title = "Create an entry"
+        }
         
     }
 }
