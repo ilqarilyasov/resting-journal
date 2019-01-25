@@ -69,6 +69,5 @@ class EntryDetailViewController: UIViewController {
         {
             title = "Create an entry"
         }
-        
     }
 }

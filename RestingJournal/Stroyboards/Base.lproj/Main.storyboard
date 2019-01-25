@@ -28,28 +28,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4YS-2N-ULc">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="70.5"/>
+                                            <rect key="frame" x="16" y="4" width="343" height="62.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ueK-hr-h8g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="22.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo8-Zf-KKR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="297" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mo8-Zf-KKR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="171.5" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkv-wq-aTr">
-                                                            <rect key="frame" x="305" y="0.0" width="38" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkv-wq-aTr">
+                                                            <rect key="frame" x="179.5" y="0.0" width="163.5" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dd-Zs-RAy">
-                                                    <rect key="frame" x="0.0" y="28.5" width="343" height="42"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body text" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dd-Zs-RAy">
+                                                    <rect key="frame" x="0.0" y="30.5" width="343" height="32"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -58,9 +58,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="4YS-2N-ULc" secondAttribute="trailing" constant="16" id="3hd-3D-dyz"/>
-                                        <constraint firstAttribute="bottom" secondItem="4YS-2N-ULc" secondAttribute="bottom" id="YTr-eM-Nca"/>
+                                        <constraint firstAttribute="bottom" secondItem="4YS-2N-ULc" secondAttribute="bottom" constant="4" id="YTr-eM-Nca"/>
                                         <constraint firstItem="4YS-2N-ULc" firstAttribute="leading" secondItem="kqc-tl-ISv" secondAttribute="leading" constant="16" id="img-Iu-kub"/>
-                                        <constraint firstItem="4YS-2N-ULc" firstAttribute="top" secondItem="kqc-tl-ISv" secondAttribute="top" id="mFw-sI-JnR"/>
+                                        <constraint firstItem="4YS-2N-ULc" firstAttribute="top" secondItem="kqc-tl-ISv" secondAttribute="top" constant="4" id="mFw-sI-JnR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -114,19 +114,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-y8-sFV">
-                                <rect key="frame" x="16" y="124" width="343" height="267"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zau-I5-hhB">
+                                <rect key="frame" x="16" y="132" width="343" height="527"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kl9-Y9-kGn">
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a title:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kl9-Y9-kGn">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wlS-5D-MUP">
-                                        <rect key="frame" x="0.0" y="38" width="343" height="229"/>
+                                        <rect key="frame" x="0.0" y="38" width="343" height="489"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -134,10 +134,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92156857250000002" green="0.92156863209999995" blue="0.92156857250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Arc-y8-sFV" firstAttribute="height" secondItem="5cr-Ce-NTS" secondAttribute="height" multiplier="0.4" id="T79-MJ-2Lt"/>
-                            <constraint firstItem="Arc-y8-sFV" firstAttribute="top" secondItem="pDM-Xl-3CO" secondAttribute="top" constant="8" id="VyI-lZ-E0m"/>
-                            <constraint firstItem="Arc-y8-sFV" firstAttribute="leading" secondItem="pDM-Xl-3CO" secondAttribute="leading" constant="16" id="qs3-2i-qRx"/>
-                            <constraint firstItem="pDM-Xl-3CO" firstAttribute="trailing" secondItem="Arc-y8-sFV" secondAttribute="trailing" constant="16" id="sow-go-pq4"/>
+                            <constraint firstItem="pDM-Xl-3CO" firstAttribute="trailing" secondItem="Zau-I5-hhB" secondAttribute="trailing" constant="16" id="CbB-zK-peR"/>
+                            <constraint firstAttribute="bottom" secondItem="Zau-I5-hhB" secondAttribute="bottom" constant="8" id="r9n-cS-Vi2"/>
+                            <constraint firstItem="Zau-I5-hhB" firstAttribute="leading" secondItem="pDM-Xl-3CO" secondAttribute="leading" constant="16" id="twM-EO-PIV"/>
+                            <constraint firstItem="Zau-I5-hhB" firstAttribute="top" secondItem="pDM-Xl-3CO" secondAttribute="top" constant="16" id="w9b-6o-Tfd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pDM-Xl-3CO"/>
                     </view>
@@ -159,6 +159,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XCT-az-J1Q"/>
+        <segue reference="fb9-0B-jMF"/>
     </inferredMetricsTieBreakers>
 </document>
