@@ -20,11 +20,10 @@ class EntryController
     
     func put(entry: Entry, completion: @escaping (Error?) -> Void)
     {
-        
-        let entryURL = baseURL.appendingPathComponent(entry.identifier)
+        let entriesURL = baseURL.appendingPathComponent(entry.identifier)
             .appendingPathExtension("json")
         
-        var request = URLRequest(url: entryURL)
+        var request = URLRequest(url: entriesURL)
         request.httpMethod = "PUT"
         
         do
@@ -48,6 +47,41 @@ class EntryController
                 return
             }
             completion(nil)
+        }.resume()
+    }
+    
+    func fetchEntries(completion: @escaping (Error?) -> Void)
+    {
+        let entriesURL = baseURL.appendingPathExtension("json")
+        
+        var request = URLRequest(url: entriesURL)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("EntryController. 3 - Error perfoeming task: \(error)")
+                completion(error)
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("EntryController. 4 - Error. No data returned")
+                completion(NSError())
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let decodedEntriesDict = try decoder.decode([String : Entry].self, from: data)
+                let decodedEntries = decodedEntriesDict.map({ $0.value })
+                let sortedEntries = decodedEntries.sorted(by: { $0.timestamp < $1.timestamp })
+                self.entries = sortedEntries
+                completion(nil)
+            }
+            catch {
+                NSLog("EntryController. 5 - Error decoding data to entries: \(error)")
+                completion(error)
+                return
+            }
         }.resume()
     }
     

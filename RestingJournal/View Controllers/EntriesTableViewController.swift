@@ -14,10 +14,6 @@ class EntriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        entryController.createEntry(withTitle: "This is a test", bodyText: "Is this working?") { (error) in
-            
-        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
