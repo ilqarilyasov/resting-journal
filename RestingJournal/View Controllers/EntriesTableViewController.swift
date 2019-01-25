@@ -8,7 +8,8 @@
 
 import UIKit
 
-class EntriesTableViewController: UITableViewController {
+class EntriesTableViewController: UITableViewController
+{
     
     // MARK: - Properties
     
@@ -16,24 +17,29 @@ class EntriesTableViewController: UITableViewController {
     
     // MARK: - Lifecycle functions
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        entryController.fetchEntries { (error) in
-            if let error = error {
-                NSLog("EntriesTableViewController. 1 - Error fetching entries: \(error)")
-            }
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        entryController.fetchEntries
+            { (error) in
+                if let error = error
+                {
+                    NSLog("EntriesTableViewController. 1 - Error fetching entries: \(error)")
+                }
         }
     }
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return entryController.entries.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
-        let entryCell = cell as! EntryTableViewCell
+        guard let entryCell = cell as? EntryTableViewCell else { fatalError() }
         let entry = entryController.entries[indexPath.row]
         entryCell.entry = entry
         
@@ -48,17 +54,29 @@ class EntriesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            let entry = entryController.entries[indexPath.row]
+            entryController.deleteEntry(entry: entry) { (error) in
+                if let error = error
+                {
+                    NSLog("EntriesTableViewController. 2 - Error deleting entry: \(error)")
+                    return
+                }
+                DispatchQueue.main.async
+                    {
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+            }
+        }
+        else if editingStyle == .insert
+        {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

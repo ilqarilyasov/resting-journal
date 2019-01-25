@@ -8,7 +8,8 @@
 
 import UIKit
 
-class EntryTableViewCell: UITableViewCell {
+class EntryTableViewCell: UITableViewCell
+{
 
     // MARK: - Properties
     
@@ -22,7 +23,8 @@ class EntryTableViewCell: UITableViewCell {
     
     // MARK: - Update views
     
-    private func updateViews() {
+    private func updateViews()
+    {
         guard let entry = entry else { return }
         titleLabel.text = entry.title
         timeLabel.text = formatter.string(from: entry.timestamp)
@@ -31,7 +33,8 @@ class EntryTableViewCell: UITableViewCell {
     
     // MARK: - Date formatter
     
-    var formatter: DateFormatter {
+    var formatter: DateFormatter
+    {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .short
