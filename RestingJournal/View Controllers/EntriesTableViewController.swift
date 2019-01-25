@@ -93,14 +93,21 @@ class EntriesTableViewController: UITableViewController
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "AddSegue"
+        {
+            let destionationVC = segue.destination as! EntryDetailViewController
+            destionationVC.entryController = entryController
+        }
+        else if segue.identifier == "CellSegue"
+        {
+            let destinationVC = segue.destination as! EntryDetailViewController
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            destinationVC.entry = entryController.entries[indexPath.row]
+            destinationVC.entryController = entryController
+        }
     }
-    */
-
 }
