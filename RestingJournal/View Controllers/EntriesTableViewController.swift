@@ -17,9 +17,8 @@ class EntriesTableViewController: UITableViewController
     
     // MARK: - Lifecycle functions
 
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         entryController.fetchEntries
             { (error) in
                 if let error = error
@@ -27,8 +26,8 @@ class EntriesTableViewController: UITableViewController
                     NSLog("EntriesTableViewController. 1 - Error fetching entries: \(error)")
                 }
                 DispatchQueue.main.async
-                {
-                    self.tableView.reloadData()
+                    {
+                        self.tableView.reloadData()
                 }
         }
     }
