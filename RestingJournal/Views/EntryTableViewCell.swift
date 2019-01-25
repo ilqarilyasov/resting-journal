@@ -10,15 +10,31 @@ import UIKit
 
 class EntryTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - Properties
+    
+    var entry: Entry? { didSet { updateViews() }}
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var bodyTextView: UILabel!
+    
+    // MARK: - Update views
+    
+    private func updateViews() {
+        guard let entry = entry else { return }
+        titleLabel.text = entry.title
+        timeLabel.text = formatter.string(from: entry.timestamp)
+        bodyTextView.text = entry.bodyText
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK: - Date formatter
+    
+    var formatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
     }
-
 }
