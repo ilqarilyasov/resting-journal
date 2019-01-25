@@ -32,7 +32,12 @@ class EntryDetailViewController: UIViewController {
         {
             entryController.updateEntry(entry: entry, title: text, bodyText: bodyText)
             { (error) in
-                NSLog("EntryDetailViewController. 1 - Error updating the entry: \(String(describing: error))")
+                if let error = error
+                {
+                    NSLog("EntryDetailViewController. 1 - Error updating the entry: \(error)")
+                    return
+                }
+                
                 DispatchQueue.main.async
                 {
                     self.navigationController?.popViewController(animated: true)
@@ -43,10 +48,15 @@ class EntryDetailViewController: UIViewController {
         {
             entryController.createEntry(withTitle: text, bodyText: bodyText)
             { (error) in
-                NSLog("EntryDetailViewController. 2 - Error creating an entry: \(String(describing: error))")
+                if let error = error
+                {
+                    NSLog("EntryDetailViewController. 2 - Error creating an entry: \(error)")
+                    return
+                }
+                
                 DispatchQueue.main.async
-                    {
-                        self.navigationController?.popViewController(animated: true)
+                {
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }
