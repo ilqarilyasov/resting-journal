@@ -50,4 +50,21 @@ class EntryController
             completion(nil)
         }.resume()
     }
+    
+    // MARK: - CRUD methods
+    
+    func createEntry(withTitle: String, bodyText: String, completion: @escaping (Error?) -> Void)
+    {
+        let entry = Entry(title: withTitle, bodyText: bodyText)
+        put(entry: entry, completion: completion)
+    }
+    
+    func update(entry: Entry, title: String, bodyText: String, completion: @escaping (Error?) -> Void)
+    {
+        guard let index = entries.index(of: entry) else { return }
+        entries[index].title = title
+        entries[index].bodyText = bodyText
+        let updatedEntry = entries[index]
+        put(entry: updatedEntry, completion: completion)
+    }
 }
